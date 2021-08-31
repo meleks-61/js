@@ -37,17 +37,17 @@
 //2
 
 //find each of words' first letter  and add all of them each other
-const str = 'Clarusway Online Career IT Training School';
-//i)
-let arrWord = str.split(" ")
-let newArr = []
-arrWord.forEach(e => newArr.push(e[0]))
-console.log(newArr.join(""));
+// const str = 'Clarusway Online Career IT Training School';
+// //i)
+// let arrWord = str.split(" ")
+// let newArr = []
+// arrWord.forEach(e => newArr.push(e[0]))
+// console.log(newArr.join(""));
 
-//ii)
+// //ii)
 
-const newArr = str.split(" ").map(n => n[0]).join("")
-console.log(newArr);
+// const newArr = str.split(" ").map(n => n[0]).join("")
+// console.log(newArr);
 
 // /***** */
 // 3
