@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: inherit; */
+  
+  }
+  /* html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+  } */
+   body{
+      font-family: system-ui;
+      color: #555;
+      
+      background-color: #f7f7f7; 
+       min-height:96vh ; 
+      background: linear-gradient(to top leeft #2e619c, #c0ceee);
+      /* display: block; */
+      justify-content: center;
+  } 
+  .title{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .container{
+     
+  }
+  .countries{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+      margin-top: 1rem;
+      /* font-size: 1.6rem; */
+      /* opacity: 0; */
+      transition: opacity 1.6s;
+  }
+  .country{
+      display: flex;
+      box-shadow: 0 2rem 5rem rgba(0,0,0,0.2);
+      font-size: 1.8rem;
+      width: 70rem;
+      /* border-radius: 0.7rem; */
+      margin: 3rem;
+      margin-bottom: 2rem;
+      /* border: 1px solid black; */
+  }
+  .country_img{
+      float: left;
+      flex: 50%;
+      background-color: #eee;
+      border-top-left-radius: 0.7rem;
+      border-bottom-left-radius: 0.7rem;
+      /* padding: 0.5rem 0rem 2rem 2.5rem; */
+      width: 20rem;
+      object-fit: cover;
+  }
+  .country_data{
+      float: left;
+      flex: 50%;
+  }
+  .country_name{
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+  }
+  .country_region{
+      font-size: 1.6rem;
+      margin-bottom: 1.4rem;
+      text-transform: uppercase;
+      color: #888;
+  }
+  .country_row:not(:nth-last-child){
+      margin-bottom: 0.5rem;
+  }
+  .country_row span{
+      display: inline-block;
+      margin-right: 2rem;
+      font-size: 1.4rem;
+      
+  }
+  .neighbours::before{
+
+        content: "Neighbour country";
+        width: 100%;
+        position: absolute;
+        top: -4rem;
+      
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgb(255, 230, 4);
+      
+      
+
+  }
+  .neighbours{
+    
+        transform: scale(0.8) translateY(1rem);
+        margin-left: 0;
+    
+
+  }
