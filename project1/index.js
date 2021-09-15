@@ -65,64 +65,124 @@ const renderCountry = (data, className = "") => {
 //     .catch((error) => alert(error.message));
 // }
 
-function getCountryByCode(code){
-    fetch(`https://restcountries.eu/rest/v2/alpha/${code}`)
-    .then(response =>{
-        if (!response.ok)throw new Error("Something went wrong")
-         return response.json()
+// function getCountryByCode(code){
+//     fetch(`https://restcountries.eu/rest/v2/alpha/${code}`)
+//     .then(response =>{
+//         if (!response.ok)throw new Error("Something went wrong")
+//          return response.json()
             
-        }
-    )
-    .then(data=>{
-    console.log(data);//bir obje döndüğü için data[0] yapmıyoruz
-    renderCountry(data, "neighbours")
-}
-    )
+//         }
+//     )
+//     .then(data=>{
+//     console.log(data);//bir obje döndüğü için data[0] yapmıyoruz
+//     renderCountry(data, "neighbours")
+// }
+//     )
 
-}
-// getCountryByCode("Tur")
+// }
+// // getCountryByCode("Tur")
 
 
-function getCountryAndNeigbours(countryName) {
-  fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
-    .then((response) => {
-      // console.log(response)
-      if (!response.ok) throw new Error("something went wrong");
-      return response.json();
-    })
-    .then((data) => {
-      // console.log(data)//array döndüğü için data[0] yapıyoruz
-      console.log(data[0]);
-      renderCountry(data[0]);
-      return data[0].borders;
-    })
-    .then((neighbours) => {
+
+// function getCountryAndNeigbours(countryName) {
+//   fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
+//     .then((response) => {
+//       // console.log(response)
+//       if (!response.ok) throw new Error("something went wrong");
+//       return response.json();
+//     })
+//     .then((data) => {
+//       // console.log(data)//array döndüğü için data[0] yapıyoruz
+//       console.log(data[0]);
+//       renderCountry(data[0]);
+//       return data[0].borders;
+//     })
+//     .then((neighbours) => {
         
-        if (neighbours.length) {
-            console.log("neigbours:" ,data)
-            neighbours.forEach(country => {
-                getCountryByCode(country)
+//         if (neighbours.length) {
+//             // console.log("neigbours:" ,data)
+//             neighbours.forEach(country => {
+//                 getCountryByCode(country)
 
                 
-            });
+//             });
             
-        }
+//         }
 
-    })
-    .catch((error) => alert(error.message));
+//     })
+//     .catch((error) => alert(error.message));
+// }
+
+
+const n =async (neighbour)=>{
+    response= await fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`)
+    data = await response.json()
+    renderCountry(data,`neighbours`)
+
 }
 
 
+
+
+    const getCountryAndNeigbourDataAsync2 = async (country)=>{
+        
+            let response =await fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+            // if (!response.k) 
+            //     throw new Error(`Something went wrong${response.status}`)
+                
+            
+            let data= await response.json()
+            renderCountry(data[0]);
+            const neighbours=data[0].borders
+            
+                neighbours.forEach(neighbour => {
+                   n(neighbour)
+                    
+                    
+                });
+            
+            
+                
+            // if (!response.k) 
+            //     throw new Error(`No neighbour${response.status}`)
+                
+            
+
+            
     
+        }
+    
+// const getCountryAndNeigbourDataAsync1 = async (country)=>{
+    
+//         let response = await fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+//         let data =await response.json()
+//         renderCountry(data[0])
+//         let neighbour=data[0].borders[0]
+//         response= await fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`)
+//         data=await response.json()
+//         renderCountry(data,"neighbours")
+        
+        
+
+    
+// }   
+
+
+
+
 
 
 
 
 
 // getCountryAndNeigbours("malta")
+// getCountryAndNeigbours("turkey")
+// getCountryAndNeigbours("usa")//komşu ülkeleri karışık yazdırdı
 
 
 
 
-// getCountryByName("turkey");
+getCountryAndNeigbourDataAsync("turkey");
+getCountryAndNeigbourDataAsync("usa");
+// getCountryAndNeigbourDataAsync("malta");//komşu ülkeleri sırayla yazdırdı.
 // getCountryByName("germany");
