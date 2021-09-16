@@ -114,9 +114,9 @@ const renderCountry = (data, className = "") => {
 // }
 
 
-const n =async (neighbour)=>{
+const n =  async (neighbour)=>{
     response= await fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`)
-    data = await response.json()
+    data =  await response.json()
     renderCountry(data,`neighbours`)
 
 }
@@ -124,7 +124,7 @@ const n =async (neighbour)=>{
 
 
 
-    const getCountryAndNeigbourDataAsync2 = async (country)=>{
+    const getCountryAndNeigbourDataAsync = async (country)=>{
         
             let response =await fetch(`https://restcountries.eu/rest/v2/name/${country}`)
             // if (!response.k) 
@@ -145,12 +145,8 @@ const n =async (neighbour)=>{
                 
             // if (!response.k) 
             //     throw new Error(`No neighbour${response.status}`)
-                
             
-
-            
-    
-        }
+       }
     
 // const getCountryAndNeigbourDataAsync1 = async (country)=>{
     
