@@ -11,4 +11,4 @@ btn.addEventListener("click",()=>{
     color.innerText=code
     document.body.style.backgroundColor=code
 });
-getRandomNumber=()=>Math.floor(Math.random()*hex.length)
+ getRandomNumber=()=>Math.floor(Math.random()*hex.length)
