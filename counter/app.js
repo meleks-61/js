@@ -58,6 +58,15 @@ btnsElement.forEach((btn)=>{
             count++
 
         }
+        if(count>0){
+            valueElement.style.color='green'
+        }
+        if(count<0){
+            valueElement.style.color='red'
+        }
+        if(count===0){
+            valueElement.style.color='#222'
+        }
         valueElement.innerText=count
 
     })
